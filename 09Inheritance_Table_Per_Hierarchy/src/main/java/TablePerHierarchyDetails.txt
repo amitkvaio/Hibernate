@@ -1,0 +1,12 @@
+
+Hibernate Table Per Hierarchy
+****************************
+By this inheritance strategy, we can map the whole hierarchy by single table only. 
+	Here, an extra column (also known as discriminator column) is created in the table to identify the class.
+
+	
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE), @DiscriminatorColumn and 
+	@DiscriminatorValue annotations for mapping table per hierarchy strategy.
+
+In case of table per hierarchy, only one table is required to map the inheritance hierarchy. 
+	Here, an extra column (also known as discriminator column) is created in the table to identify the class.

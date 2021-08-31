@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	
+<hibernate-mapping package="com.lara">
+
+	<class name="Person" table="Person">
+		
+			<composite-id name = "pk" class="PersonPK">
+				<key-property name="firstName"/>
+				<key-property name="email"/>
+			</composite-id>
+			
+			<property name="lastName"/>
+			<property name="age"/>
+	</class>
+	
+	
+	<sql-query name="q1">
+		<!-- <return-scalar column="FiRstName" type="java.lang.String"/>
+		<return-scalar column="lAsTName" type="java.lang.String"/>
+		<return-scalar column="AGE" type="int"/>
+		<return-scalar column="EMail" type="java.lang.String"/> -->
+		select * from PERSON
+	</sql-query>
+	
+	<sql-query name="q2">
+	
+		select * from PERSON where age>:param1
+	</sql-query>
+	
+	<sql-query name = "q3">
+		select * from person where age>:param1 and lastname=:param2
+	</sql-query>
+</hibernate-mapping>

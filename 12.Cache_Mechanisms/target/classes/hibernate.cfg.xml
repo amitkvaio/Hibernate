@@ -1,0 +1,44 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+    
+        <!-- <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.username">system</property>
+        <property name="hibernate.connection.password">amit</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property> -->
+        
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/amitdb</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">amit</property>
+		
+		
+		
+		<property name="hibernate.cache.region.factory_class">
+			org.hibernate.cache.ehcache.EhCacheRegionFactory
+		</property>
+			
+		<property name="hibernate.cache.provider_class">
+			org.hibernate.cache.internal.EhCacheProvider
+		</property>
+		
+		<!-- 
+		For the First level above tow property is not required we can comments
+		-->
+        
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        
+       <property name="hibernate.show_sql">true</property>
+      
+        <mapping resource="com/cache/firstlevel/Person.hbm.xml"/>
+        <mapping resource="com/cache/secondLevel/Person.hbm.xml" />
+        <!-- Above mapping is for Second Level of cache  -->
+        
+    </session-factory>
+</hibernate-configuration>
+

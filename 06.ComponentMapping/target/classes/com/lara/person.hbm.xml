@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	
+	
+	<hibernate-mapping package="com.lara">
+		<class name = "Person" table ="Person">
+			<id name = "id" column="id">
+				<generator class="native"/>
+			</id>
+			
+				<property name ="firstName"/>
+				<property name="lastName"/>
+				<property name = "age"/>
+			
+			<component name = "add" class="Address">
+				<property name = "StreetName"/>
+				<property name = "city"/>
+				<property name = "State"/>
+			</component>
+		</class>
+		
+		
+		<sql-query name="q1">
+		
+			<return-scalar column="firstName" type="java.lang.String"/>
+			<return-scalar column="lastName" type="java.lang.String"/>
+			<return-scalar column="age" type="int"/>	
+			
+			<return-scalar column="StreetName" type="java.lang.String"/>
+			<return-scalar column="city" type="java.lang.String"/>
+			<return-scalar column="State" type="java.lang.String"/>
+			
+			select * from Person	
+		</sql-query>
+		
+		 <sql-query name="q2">
+		
+			select * from Person
+		</sql-query>
+		
+		<sql-query name = "q3">
+		
+			select * from Person where age>:param1
+		</sql-query>
+		
+		<sql-query name="q4">
+			
+			select * from Person where age>:param1 and state=:param2
+		</sql-query>
+	</hibernate-mapping>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

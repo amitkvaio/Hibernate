@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.per.hierarchy">
+		<class name="Human" table="Human" discriminator-value="h">
+			<id name="id">
+				<generator class="native"/>
+			</id>
+			<discriminator column="type" type="java.lang.String"/>
+			<property name="firstName" />
+			<property name="age" />
+				<subclass name="Person" discriminator-value="p">
+					<property name="address" />
+					<property name="city" />
+						<subclass name="Employee" discriminator-value="e">
+							<property name="designation" />
+							<property name="email" />
+								<subclass name="PermanentEmployee" discriminator-value="pe">
+									<property name="leavecount" />
+									<property name="salary" />
+								</subclass>
+						</subclass>
+				</subclass>
+			</class>		
+</hibernate-mapping>
+<!-- 
+//the data will be stored into a single table only, which is base class table.
+
+	if we save the object of human,Person,Employee,PermanentEmployee it will
+	save in the database in to the base table.
+
+discriminator column in the database,  just to identify which derived class object
+we have been saved in the table along with the base class object,  if we are not 
+ -->

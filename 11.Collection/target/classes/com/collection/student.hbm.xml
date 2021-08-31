@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	
+	<hibernate-mapping package="com.collection">
+	
+		<!-- <class name="Student" table="STUDENT">
+		
+			<id name="id" column="S_ID">
+				<generator class="sequence">
+					<param name="sequence">student_seq</param>
+				</generator>
+			</id>
+			
+			<property name="name"/>
+			
+			
+			<array name="projects" table="PROJECTS">
+			
+				<key column="S_ID"/>
+				<list-index column="sno"/>
+				<element column="project_name" type="string"/>
+			</array>
+			
+		<bag name="skills" table="SKILLS">
+			<key column="S_ID"/>
+			<element column="skills_name" type="string"/>
+		</bag>
+		
+		
+		<list name="marks" table="MARKS">
+			<key column="S_ID"/>
+			<list-index column="sno"/>
+			<element column="marks" type="int"/>
+		</list>
+		
+		<set name="jobs" table="JOBS">
+			<key column="S_ID"/>
+			<element column="job" type="string"/>
+		</set>		
+	
+	
+		<map name="education" table="EDUCATION">
+			<key column="S_ID"/>
+			<map-key column="name" type="string"/>
+			<element column="education" type="string"/>
+		</map>
+	</class> -->
+	
+		<class name="Student" table="STUDENT">
+			<id name="id" column="S_ID">
+				<generator class="sequence">
+					<!-- <param name="sequence">student_seq</param> -->
+				</generator>
+			</id>
+			<property name="name"/>
+			
+			<array name="projects" table="PROJECTS">
+				<key column="S_ID"/>
+				<list-index column="sno"/>
+				<element column="projectName" type="string"/>
+			</array>
+			<bag name="skills" table="SKILLS">
+				<key column="S_ID"/>
+				<element column="skill" type="string"/>
+			</bag>
+			<list name="Marks" table="MARKS">
+				<key column="S_ID"/>
+				<list-index column="sno"/>
+				<element column="Marks" type="int"/>
+			</list>
+			<set name="jobs" table="JOBS">
+				<key column="S_ID"/>
+				<element column="jobs" type="string"/>
+			</set>
+			<map name="education" table="EDUCATION">
+				<key column="S_ID"/>
+				<map-key column="name" type="string"/>
+				<element column="post" type="string"/>	
+			</map>
+		</class>
+	</hibernate-mapping>
+	
+	<!-- private int id;
+	private String name;
+	private String[] projects;
+	private Collection skills;
+	private List marks;
+	private Set jobs;
+	private Map education; -->

@@ -1,0 +1,96 @@
+Inheritance : Table Per Subclass
+*******************************
+
+In this strategy, each subclass table will have the subclass specific attributes only.
+
+Parent class attributes will be stored in Parent class table.
+
+Subclass tables will have foreign key associations to the superclass table
+
+So there will not be any duplicate columns in the subclass table except one column which is 
+	anyway required to maintain the relation between Parent and subclass tables through foreign key.
+
+**************************************************************************************************
+Table Per Subclass, subclass mapped tables are related to parent class mapped table by primary key and foreign key relationship.
+
+The <joined-subclass> element of class is used to map the child class with parent using the primary key and foreign key relation. 
+
+
+The joined-subclass subelement of class, specifies the subclass.
+
+The key sub-element of joined-subclass is used to generate the foreign key in the subclass mapped table. 
+	This foreign key will be associated with the primary key of parent class mapped table.
+
+Table creation using hbm xml mapping
+-----------------------------------
+Hibernate: create table Human (id integer not null auto_increment, firstName varchar(255), age integer, primary key (id))
+Hibernate: create table Person (id integer not null, address varchar(255), city varchar(255), primary key (id))
+Hibernate: create table Employee (id integer not null, designation varchar(255), email varchar(255), primary key (id))
+Hibernate: create table P_Employee (id integer not null, leavecount integer, salary double precision, primary key (id))
+
+Hibernate: alter table Person add constraint FKj7q3as6jwl9we4oqsdkqsl74n foreign key (id) references Human (id)
+Hibernate: alter table Employee add constraint FKr93nrd2e64ptrn7r8bi1nd0ol foreign key (id) references Person (id)
+Hibernate: alter table P_Employee add constraint FKfm011rwvnjpuk309oq2re6p92 foreign key (id) references Employee (id)
+Table Per Subclass using Annotation
+***********************************
+
+in case of table per subclass strategy, tables are created as per persistent classes 
+	but they are treated using primary and foreign key. So there will not be any duplicate column in the relation.
+
+We need to specify @Inheritance(strategy=InheritanceType.JOINED) in the parent class 
+	and @PrimaryKeyJoinColumn annotation in the subclasses.
+	
+
+Table creation using Annotation mapping
+--------------------------------------
+Hibernate: create table Human (id integer not null, firstName varchar(255), age integer, primary key (id))
+Hibernate: create table Person (id integer not null, address varchar(255), city varchar(255), primary key (id))
+Hibernate: create table Employee (id integer not null, designation varchar(255), email varchar(255), primary key (id))
+Hibernate: create table P_Employee (id integer not null, leavecount integer, salary double precision, primary key (id))
+
+Hibernate: alter table Person add constraint FKj7q3as6jwl9we4oqsdkqsl74n foreign key (id) references Human (id)
+Hibernate: alter table Employee add constraint FKr93nrd2e64ptrn7r8bi1nd0ol foreign key (id) references Person (id)
+Hibernate: alter table P_Employee add constraint FKfm011rwvnjpuk309oq2re6p92 foreign key (id) references Employee (id)
+
+
+output
+------
+Human
+hid	fName	Age
+1	Raja	32
+2	Amit	31
+3	Niraj	26
+4	Ajit	19
+
+Person
+hid	Addd		city
+2	Ranchi		Bangalore
+3	New MadhukamRanchi
+4	Rafigunj	Bihar
+
+Employee
+hid	degination	email
+3	Soft Eng	niraj@gmail.com
+4	HR			ajit@gmail.com
+		
+P Employee
+hid leavecont salary
+4	152		52686.56
+
+Advantage
+-------------
+It provides more normalized database tables.
+
+When we modify Parent class table, Child table will not get affected as it already maintains a relation with Parent.
+
+No duplicate columns in any table except “id” column which is required to maintain the relation.
+
+Disadvantage
+**********
+If the inheritance hierarchy keeps growing, it results in poor performance as it has to maintain the 
+	relationship between parent and child class tables.
+
+It has to perform join to access child class attributes as some of the Child class attributes 
+	are stored in Parent class table using a relationship.
+				
+		

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.storeprocedure">
+
+	<class name="Student" table="Student">
+		<id name="id" column="id">
+			<generator class="sequence" />
+		</id>
+		<property name="name" />
+	</class>
+
+	<sql-query name="sp1">
+		{call p1}
+	</sql-query>
+
+	<sql-query name="sp2">
+		{call p2(4,'hello')}
+	</sql-query>
+
+	<sql-query name="sp3">
+		{call p2(?,?)}
+	</sql-query>
+
+	<sql-query name="sp4">
+		{call p2(:a1,:a2)}
+	</sql-query>
+
+	<sql-query name="sp5">
+		{call p3(?,?)}
+	</sql-query>
+
+</hibernate-mapping>

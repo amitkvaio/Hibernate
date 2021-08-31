@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.one2one.xml.bidirectional">
+
+	<class name="Person" table="PERSON">
+		<id name="id" column="P_id" />
+		<property name="firstName" />
+		<property name="lastName"  />
+		<property name="age" />
+		
+		<one-to-one name="address" class="Address" cascade="all" />
+	</class>
+
+<!-- 
+	Person class
+	
+	private int id;
+	private String firstName;
+	private String lastName;
+	private Integer age;
+	private Address address;
+
+ -->
+	<class name="Address" table="ADDRESS">
+		<id name="id" column="A_id">
+			<generator class="foreign">
+				<param name="property">person</param>
+			</generator>
+		</id>
+		<property name="houseNo" />
+		<property name="streetName" />
+		<property name="state" />
+		<one-to-one name="person" class="Person" constrained="true" />
+		<!-- 
+		Address address = (Address) session.load(Address.class, address_id);
+    	Place place = address.getPlace();
+    	constrained = true = means Person class can not exists without the Address.
+		 -->
+	</class>
+	
+	<!-- 
+	
+	Address class A_id is acting as foreign key and it is reffering to Person class p_id
+	Address
+	
+	private Integer id;
+	private String houseNo;
+	private String streetName;
+	private String state;
+	
+	private Person person;
+	
+	 -->
+</hibernate-mapping>
+
+<!-- 
+
+Cascade attribute is mandatory, when ever we apply relationship between objects, 
+cascade attribute transfers operations done on one object onto its related child objects
+
+If we write cascade = “all” then changes at parent class object will be effected to child class object too,  
+if we write cascade = “all” then all operations like insert, delete, update at parent object will be effected to child object also
+default value of cascade =”none” means no operations will be transfers to the child class
+
+Cascade having the values…….
+
+    none (default)
+    save
+    update
+    save-update
+    delete
+    all
+    all-delete-orphan
+    
+    
+what is orphan record ..?
+an orphan record means it is a record in child table but it doesn’t have association with its parent in the application.
+ -->

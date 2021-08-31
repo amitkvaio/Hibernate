@@ -1,0 +1,40 @@
+1.
+How to create the Stored Procedure
+----------------------------------
+run the below command in sql
+-----------------------------------
+Create Or Replace 
+Procedure P1
+as
+Begin 
+Insert into Student Values(2,'xyz');end;
+---------------------------------------------
+keep below code in hbm file after the class tag 
+-----------------------------------------------
+<sql-query name="sp1">
+		{call p1}
+	</sql-query>
+=======================================================================
+2.
+
+create or replace 
+Procedure P2(arg0 int,arg1 varchar)
+as
+Begin 
+Insert into Student Values(arg0,arg1);end;
+-------------------------
+<sql-query name="sp2">
+		{call p2(3,'hello')}
+	</sql-query>
+========================================================================
+3.
+Create Or Replace 
+Procedure P3(Arg0 Int,Arg1 Out Varchar)
+AS 
+Begin
+  Select Name Into Arg1 From Student Where Id=Arg0;
+END;
+--------------
+ <sql-query name="sp5">
+		{call p3(?,?)}
+	</sql-query>

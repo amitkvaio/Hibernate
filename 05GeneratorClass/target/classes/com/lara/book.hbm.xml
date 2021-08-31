@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.lara">
+
+	<class name = "Book" table ="Book">
+		
+		<id name ="id" column="id1">
+		
+			<!-- <generator class="native"/> -->
+			<!-- <generator class="assigned"/> -->
+			<!-- <generator class="increment"/> -->
+			
+			<!-- <generator class="sequence">
+						<param name="sequence">MySequence</param>
+			</generator> -->
+			
+			<!--
+			First create the sequence "MySequence" in database
+					 not supported by mysql  
+			-->
+			
+			<generator class="sequence">
+			</generator>
+			
+		</id>
+	
+		<property name = "title"/>
+		<property name = "author"/>
+	
+	</class>
+
+
+</hibernate-mapping>
+<!-- 
+    If the programmer has not passed any sequence name, then hibernate creates its own sequence with name 
+    	“Hibernate-Sequence” and gets next value from that sequence, and than assigns that id value for new record
+    But remember, if hibernate want’s to create its own sequence, in hibernate configuration file, 
+    	hbm2ddl.auto property must be set enabled
+
+ -->

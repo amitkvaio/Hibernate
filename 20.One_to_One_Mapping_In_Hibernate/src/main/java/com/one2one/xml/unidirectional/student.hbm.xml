@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	 
+	 <hibernate-mapping package="com.one2one.xml.unidirectional">
+	 	<class name="Student" table="Student">
+	 		 <id name="sid" column="S_id">
+	 		 	<generator class="assigned"/>
+	 		 </id>
+	 		<property name="sname"/>
+	 	</class>
+	 	
+	 	<class name="Address" table="Address">
+	 		 <id name="adid" column="Aid">
+	 		 	<generator class="foreign">
+	 		 		<param name="property">student</param>
+	 		 	</generator>
+	 		 </id>
+	 		<property name="state"/>
+	 		<one-to-one name="student" class="Student" cascade="all" constrained="true"/>
+	 	</class>
+	 
+	 </hibernate-mapping>
+
+	
+<!-- 
+
+Hibernate: alter table Address add constraint FKep1how8r1tawnr1565nle517x foreign key (Aid) references Student (S_id)
+
+public class Student
+{
+	private int sid;
+	private String sname;
+}
+
+public class Address
+{
+	private int adid;
+	private String state;
+	private Student student;
+} 
+-->

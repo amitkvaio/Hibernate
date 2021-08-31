@@ -1,0 +1,122 @@
+Hibernate Inheritance Mapping Tutorial
+***************************************
+There are three inheritance mapping strategies defined in the hibernate:
+
+    Table Per Hierarchy
+    Table Per Concrete class
+    Table Per Subclass
+
+Table Per Concrete class using Annotation
+*********************************************
+
+In this strategy, each subclass table will have the subclass specific attributes and the attributes inherited from the parent class.
+
+So each subclass will duplicate the parent class common attributes.
+
+*****************************************
+Table Per Concrete class using annotation
+*****************************************
+
+In case of Table Per Concrete class, tables are created per class. So there are no nullable values in the table. 
+	Disadvantage of this approach is that duplicate columns are created in the subclass tables.
+
+Here, we need to use @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) annotation in the parent class 
+	
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) specifies that we are using table per concrete class strategy. 
+	It should be specified in the parent class only.
+
+@AttributeOverrides defines that parent class attributes will be overriden in this class. 
+	In table structure, parent class table columns will be added in the subclass table.
+	
+
+@Entity 
+	annotation is used to indicate the class as persistent entity.
+
+@Table 
+	annotation indicates the table name where this entity has to be persisted
+
+@Inheritance 
+	annotation is used for implementing inheritance in hibernate.
+
+It helps us to define the inheritance strategy.
+---------------------------------------------
+We have used TABLE_PER_CLASS as inheritance strategy.
+
+@Inheritance 
+	annotation is defined at root class level or sub hierarchy class level where different strategy has to be applied.
+
+@Id is used to specify the primary key column.
+
+@GeneratedValue is used to specify the primary key generation strategy.
+
+@Column is used to specify the details of the column to which a field or property will be mapped	
+
+*************** For the XML mapping ***********************
+“union-subclass” tag is used for each subclass definition to specify the Table per concrete class inheritance.
+
+“union-subclass” tag indicates that all the parent class columns will be union to Subclass tables
+
+Each table defines columns for all properties of the class, including inherited properties.
+
+If Parent class is abstract,then we have to map it with abstract=”true”.
+
+**********************************************************************************************
+
+Advantage
+*********
+
+Easy to implement and avoid the NULL values getting stored in the columns
+
+Disadvantage
+***********
+Columns in parent class table are duplicated in each subclass table.
+
+Any change in the parent class table will impact all the subclass tables.
+
+Note :This strategy is not completely normalized as it still have duplicate columns in each subclass table.
+
+
+******************
+Human.java
+----------
+1.	private int id;
+2.	private String firstName;
+3.	private int age;
+// corresponding getter and setter methods
+
+
+Person extends Human
+-----------------------
+1.	private String address;
+2.	private String city;
+
+3.	private int id;
+4.	private String firstName;
+5.	private int age;
+
+Employee extends Person
+-----------------------
+1.	private String address;
+2.	private String city;
+
+3.	private int id;
+4.	private String firstName;
+5.	private int age;
+
+6.	private String designation;
+7.	private String email;
+
+PermanentEmployee extends Employee
+-----------------------------------
+1.	private String address;
+2.	private String city;
+
+3.	private int id;
+4.	private String firstName;
+5.	private int age;
+
+6.	private String designation;
+7.	private String email;
+
+8.	private double salary;
+9.	private int leavecount;

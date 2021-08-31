@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.table.persubclass">
+		<class name="Human" table="Human">
+			<id name="hid" column ="hid">
+				<generator class="native"/>
+			</id>
+			<property name="firstName" />
+			<property name="age" />
+			<joined-subclass name="Person" table="Person" >
+				<key column="hid"/>
+				<property name="address" />
+				<property name="city" />
+					<joined-subclass name="Employee" table="Employee">
+						<key column="hid"/>
+						<property name="designation" />
+						<property name="email" />
+							<joined-subclass name="PermanentEmployee" table="P_Employee">
+								<key column="hid"/>
+								<property name="leavecount" />
+								<property name="salary" />
+							</joined-subclass>
+					</joined-subclass>
+			</joined-subclass>
+		</class>
+</hibernate-mapping>

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+	<hibernate-mapping package="com.lara">
+		<class name = "Raja" table="Raja">
+			
+			<id name = "id" column="id">
+				
+					<generator class="native"/>
+			
+			</id>
+			
+			<property name="firstname"/>
+			<property name="lastname"/>
+			<property name="age"/>
+		</class>
+		
+		
+		
+		
+		<sql-query name = "q1">
+			<return-scalar column="id" type="int"/>
+			<return-scalar column="firstname" type="java.lang.String"/>
+			<return-scalar column="lastname" type="java.lang.String"/>
+			<return-scalar column="age" type="int"/>
+			select * from Raja
+		</sql-query>
+	
+		<sql-query name="q2">
+			select * from Raja
+		</sql-query>
+		
+		
+		<sql-query name="q3">
+			select * from Raja where age>:param1
+		</sql-query>
+		
+		<sql-query name="q4">
+		
+			select * from Raja where age>:param1 and firstname=:param2
+		</sql-query>
+		
+		
+		<sql-query name="q5">
+		
+			select * from Raja where age>24 and firstname='Manoj'
+		</sql-query>
+		
+		<query name="q6">
+    		<![CDATA[from Raja]]>
+		</query>
+	</hibernate-mapping>

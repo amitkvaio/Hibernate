@@ -1,0 +1,60 @@
+Hibernate Lifecycle Of pojo Class Objects
+*******************************************
+POJO class object having 3 states
+
+Transient state
+Persistent state
+Detached state
+
+
+Transient & Persistent states:
+*****************************
+When ever an object of a pojo class is created then it will be in the Transient state
+
+When the object is in a Transient state it doesn’t represent any row of the database.
+
+When the object is in persistent state, then it represent one row of the database, 
+	if the object is in persistent state then it is associated with the unique Session
+	
+if we want to move an object from persistent to detached state, we need to do either closing 
+	that session or need to clear the cache of the session.
+	
+	
+if we want to move an object from persistent state into transient state 
+	then we need to delete that object permanently from the database,
+	
+*********************************	
+if we want to convert the object from Transient state to Persistentstate we can do in 2 ways
+        By saving that object like above
+        By loading object from database
+
+If we do any modifications all the changes will first applied to the object in session cache only 
+
+****
+(Let__ we do the modifications 5 times, then 5 times we need to save the changes into the database right, 
+	which means number of round trips from our application to database will be increased, 
+		Actually if we load an object from the database, first it will saves in the cache-memory so 
+			if we do any number of changes all will be effected at cache level only and 
+				finally we can call save or update method so with the single call of save or 
+					update method the data will be saved into the database.
+
+If we want to save an object into database then we need to call any one of the following 3 methods
+
+    save()
+    persist()
+    saveOrUpdate()
+
+
+Transient:
+*********
+
+One newly created object,with out having any relation with the database, means never persistent, not associated with any Session object
+
+Persistent:
+***********
+
+Having the relation with the database, associated with a unique Session object.
+
+Detached:
+********
+previously having relation with the database [persistent ], now not associated with any Session

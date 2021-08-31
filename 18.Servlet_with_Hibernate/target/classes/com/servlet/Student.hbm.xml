@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.servlet.Student" table="Student_tab">
+		<id name="rolNum" column="rolNum">
+			<generator class="native" />
+		</id>
+		<property name="firstname" column="firstname" />
+		<property name="lastname" column="lastname" />
+		<property name="joiningDate" column="joiningDate" />
+		<property name="dob" column="dob" />
+		<property name="education" column="education" />
+		<property name="salary" column="salary" />
+		<property name="gender" column="gender" />
+	</class>
+</hibernate-mapping>

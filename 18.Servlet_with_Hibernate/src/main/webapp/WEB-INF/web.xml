@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:web="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	id="WebApp_ID" version="2.4">
+	<display-name>Archetype Created Web Application</display-name>
+	<servlet>
+		<servlet-name>Home</servlet-name>
+		<servlet-class>com.servlet.Home</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Home</servlet-name>
+		<url-pattern>/abc</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>Success</servlet-name>
+		<servlet-class>com.servlet.Success</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Success</servlet-name>
+		<url-pattern>/Success</url-pattern>
+	</servlet-mapping>
+</web-app>

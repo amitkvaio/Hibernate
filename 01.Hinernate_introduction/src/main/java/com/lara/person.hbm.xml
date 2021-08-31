@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.lara">
+	<class name="Person" table="Person" mutable="true">
+		<id name="id">
+			<generator class="native"/>
+		</id>
+		<property name="firstname"/>
+		<property name="lastname"/>
+		<property name="age"/>
+	</class>
+
+<sql-query name="getPersonDetails">
+    <return alias="Person" class="Person">
+        <return-property name="id" column="ID"/>
+        <return-property name="firstname" column="FIRSTNAME123"/>
+        <return-property name="lastname" column="LASTNAME"/>
+        <return-property name="age" column="AGE"/>
+    </return>
+        SELECT id as ID,
+        firstname AS FIRSTNAME123,
+        lastname as LASTNAME,
+        age as AGE
+        from Person where id=2 
+</sql-query>
+
+</hibernate-mapping>

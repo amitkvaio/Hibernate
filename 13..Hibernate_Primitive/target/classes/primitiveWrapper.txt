@@ -1,0 +1,33 @@
+Importance Of Wrapper And Primitive Types In Hibernate
+*******************************************************
+in cash of Primitive
+*******************
+in Manager01.java
+
+Product p1 = new Product();
+p1.setId(1);
+p1.setPname("Rice");
+p1.setPprice(45);
+
+Product p2 = new Product();
+p2.setId(2);
+p2.setPname("vegitable");
+
+for p2 forget to set the vegitable price.
+From the db
+----------
+id  pname		pprice
+1	Rice		45
+2	vegitable	0
+
+so misunderstanding of data will happen like price is zero 🙂 [ free of cost]
+
+**********************************
+Better to use Wrapper instead of Primitive in such scnerio
+**********************************************************
+
+id  pname		pprice
+1	Rice		45
+2	vegitable	
+
+in case of Wrapper it will store nothing or null os no much misunderstanding here.

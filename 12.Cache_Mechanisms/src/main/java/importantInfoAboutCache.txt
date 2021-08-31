@@ -1,0 +1,34 @@
+Hibernate Caching Mechanism, Hibernate Cache
+********************************************
+Every fresh session having its own cache memory, Caching is a mechanism for storing the loaded objects into a cache memory.  
+
+The advantage of cache mechanism is, whenever again we want to load the same object from the database 
+
+then instead of hitting the database once again, it loads from the local cache memory only,so that the no. of round trips between 
+	an application and a database server got decreased.  
+
+It means caching mechanism increases the performance of the application.
+
+In hibernate we have two levels of caching
+-----------------------------------------------
+
+First Level Cache [ or ] Session Cache
+Second Level Cache [ or ] Session Factory Cache [ or  ] JVM Level Cache
+
+First Level Cache
+****************
+By default, for each hibernate application, the first level cache is automatically been enabled
+As a programmer, we no need to have any settings to enable the first level cache and also we cannot disable this first level cache
+the first level cache is associated with the session object and scope of the cache is limited to one session only
+
+When we load an object for the first time from the database then the object will be loaded from the database and the loaded object 
+	will be stored in the cache memory maintained by that session object. 
+
+If we load the same object once again, with in the same session, then the object will be loaded from the local cache memory not 
+	from the database
+If we load the same object by opening other session then again the object will loads from the database and the loaded object 
+	will be stored in the cache memory maintained by this new session
+	
+Second Level Cache
+*******************
+

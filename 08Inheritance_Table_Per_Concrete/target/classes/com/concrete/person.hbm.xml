@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.concrete">
+
+	<!-- <class name="Human" table="HUMAN">
+		<id name="id">
+			<generator class="native" />
+		</id>
+
+		<property name="firstName" />
+		<property name="age" />
+	</class>
+
+	<class name="Person" table="Person">
+		<id name="id">
+			<generator class="native" />
+		</id>
+
+		<property name="firstName" />
+		<property name="age" />
+		<property name="address" />
+		<property name="city" />
+	</class>
+
+	<class name="Employee" table="Employee">
+		<id name="id">
+			<generator class="native" />
+		</id>
+
+		<property name="firstName" />
+		<property name="age" />
+		<property name="address" />
+		<property name="city" />
+		<property name="designation" />
+		<property name="email" />
+	</class>
+
+	<class name="PermanentEmployee" table="P_EMPLOYEE">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="firstName" />
+		<property name="age" />
+		<property name="address" />
+		<property name="city" />
+		<property name="designation" />
+		<property name="email" />
+		<property name="leavecount" />
+		<property name="salary" />
+	</class>
+ -->
+	<class name="Human" table="HUMAN">
+		<id name="id">
+			<generator class="native" />
+		</id>
+
+		<property name="firstName" />
+		<property name="age" />
+
+		<union-subclass name="Person">
+
+			<property name="address" />
+			<property name="city" />
+		</union-subclass>
+
+		<union-subclass name="Employee">
+
+			<property name="designation" />
+			<property name="email" />
+		</union-subclass>
+
+		<union-subclass name="PermanentEmployee">
+
+			<property name="leavecount" />
+			<property name="salary" />
+		</union-subclass>
+
+	</class>
+
+	
+</hibernate-mapping>
+
+<!-- 
+Here are two way to provide the mapping for same
+
+Once we save the derived class object, then derived class data and base class data
+will be saved in the derived class related table in the database
+for this type we need the tables for derived classes, but not for the base class
+
+x number of derived classes = x number of tables in the database
+
+ -->

@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.one2one.xml.bidirectional">
+	<class name="Applicant" table="Applicant">
+		<id name="applicantId">
+			<column name="Applicant_Id"></column>
+			<generator class="increment"></generator>
+		</id>
+		<property name="name" />
+		<property name="age" />
+		<property name="city" />
+
+		<one-to-one name="passport" class="Passport"
+			cascade="save-update" />
+	</class>
+	
+	<!-- 
+	
+	public class Applicant {
+	private int applicantId;
+	private String name;
+	private int age;
+	private String city;
+	private Passport passport;
+	
+	}
+	
+	Applicant_Id column is the primary key of Applicant table
+		
+	We have specified Primary key as applicantId and generator class as “increment” for automatic primary key generation.
+
+	We have defined one to one mapping with Passport entity using “one-to-one” tag.
+
+	We have also provided cascade attribute value as “save-update” which means whenever we save or update Applicant record 
+		it will also save or update the Passport record automatically.
+	
+	 -->
+
+	<class name="Passport" table="Passport">
+		<id name="passportId">
+			<column name="Passport_Id" />
+			<generator class="foreign">
+				<param name="property">applicant</param>
+			</generator>
+		</id>
+		
+		<property name="passportNumber" />
+		<property name="issuedDate" />
+		<property name="expiryDate" />
+		<one-to-one name="applicant" class="Applicant" 	constrained="true" />
+	</class>
+	
+	<!-- 
+	public class Passport {
+	private int passportId;
+	private String passportNumber;
+	private Date issuedDate;
+	private Date expiryDate;
+	private Applicant applicant;
+	
+	}
+	
+	Passport_Id column is the primary key of Passport table
+	
+	We have specified Primary key as passportId and generator class as “foreign”.
+
+	Generator class “foreign” indicates that Primary key of Passport table will be coming from Applicant 
+		table and we have to use the property name as same as relation name which is “applicant”.
+
+	We have defined one to one mapping with Applicant entity using “one-to-one” tag.
+
+	We have also provided “constrained” as true which specifies that a foreign key constraint on the primary 
+		key of the mapped table and references the table of the associated class.
+		
+	CREATE TABLE `passport` (
+  `Passport_Id` int NOT NULL,
+  `passportNumber` varchar(255) DEFAULT NULL,
+  `issuedDate` datetime DEFAULT NULL,
+  `expiryDate` datetime DEFAULT NULL,
+  PRIMARY KEY (`Passport_Id`),
+  CONSTRAINT `FKh6nj623boddru6w09ftabw82g` FOREIGN KEY (`Passport_Id`) REFERENCES `applicant` (`Applicant_Id`)
+ ) 		
+	 -->
+	 
+</hibernate-mapping>  
