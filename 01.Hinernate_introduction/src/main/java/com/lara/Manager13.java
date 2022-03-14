@@ -15,7 +15,7 @@ public class Manager13 {
 		
 		Criterion c1 = Restrictions.ge("age", 25);
 		ctr.add(c1);
-		// ctr.addOrder(Order.desc("age"));
+		ctr.addOrder(Order.desc("age"));
 
 		List<Person> list = ctr.list();
 		for (Person per : list) {

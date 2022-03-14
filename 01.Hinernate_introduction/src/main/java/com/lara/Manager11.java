@@ -12,9 +12,8 @@ public class Manager11 {
 
 		// String s2 = "from Person";//hql query
 		String s2 = "select p.age from Person p";// hql query
-		Query<Integer> qr = s1.createQuery(s2);
-
-		List<Integer> list = qr.list();
+		List<Integer> list=s1.createQuery(s2).getResultList();
+		
 		System.out.println("total size of the list is:" + list.size());
 		Iterator<Integer> it = list.iterator();
 
@@ -23,5 +22,6 @@ public class Manager11 {
 			System.out.println("age=" + a1.intValue());
 		}
 		s1.close();
+		System.exit(0);
 	}
 }

@@ -22,17 +22,17 @@ public class Manager01 {
 			System.out.println("..............");
 		}
 
-		/*List li = qr.list();
-		Iterator itet = li.iterator();
+		List<Raja> li = qr.list();
+		Iterator<Raja> itet = li.iterator();
 
 		while (itet.hasNext()) {
-			Raja r1 = (Raja) itet.next();
+			Raja r1 = itet.next();
 			System.out.println(r1.getId());
 			System.out.println(r1.getFirstname());
 			System.out.println(r1.getLastname());
 			System.out.println(r1.getAge());
 			System.out.println("..............");
-		}*/
+		}
 		System.exit(0);
 	}
 }

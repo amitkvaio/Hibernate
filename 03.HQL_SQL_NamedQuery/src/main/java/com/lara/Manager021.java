@@ -17,6 +17,5 @@ public class Manager021 {
 		for (String s12 : list) {
 			System.out.println(s12);
 		}
-
 	}
 }

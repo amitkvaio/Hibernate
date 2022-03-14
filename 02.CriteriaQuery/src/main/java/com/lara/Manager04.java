@@ -5,10 +5,8 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-public class Manager04
-{
-	public static void main(String[] args)
-	{
+public class Manager04 {
+	public static void main(String[] args) {
 		Session s1 = Util.getSession();
 		
 		List<Person> list = s1.createCriteria(Person.class)

@@ -27,5 +27,6 @@ public class Manager051 {
 		// s1.flush();
 		s1.close();
 		System.out.println("done");
+		System.exit(0);
 	}
 }

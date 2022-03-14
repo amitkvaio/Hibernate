@@ -5,9 +5,7 @@ import org.hibernate.Session;
 public class Manager00 {
 	public static void main(String[] args) {
 		Session s1 = Util.getSession();
-
 		Person p1 = new Person();
-
 		p1.setFirstname("abc");
 		p1.setLastname("def");
 		p1.setAge(8);
@@ -18,5 +16,6 @@ public class Manager00 {
 
 		s1.close();
 		System.out.println("done");
+		System.exit(0);
 	}
 }

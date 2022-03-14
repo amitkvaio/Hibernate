@@ -12,10 +12,10 @@ public class Manager02 {
 		Session s1 = Util.getSession();
 
 		Criteria ctr = s1.createCriteria(Person.class);
-		
+
 		Criterion ctr1 = Restrictions.eq("firstname", "abc");
 		Criterion ctr2 = Restrictions.eq("lastname", "def");
-		
+
 		ctr.add(ctr1);
 		ctr.add(ctr2);
 		List<Person> list = ctr.list();

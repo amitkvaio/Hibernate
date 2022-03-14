@@ -21,7 +21,7 @@ public class Manager00 {
 		s1.save(p1);
 		s1.save(p2);
 		s1.getTransaction().commit();
-		;
+
 		s1.close();
 		System.out.println("done");
 		System.exit(0);

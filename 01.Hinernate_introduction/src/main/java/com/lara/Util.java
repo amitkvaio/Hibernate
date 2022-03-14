@@ -8,10 +8,9 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
-public class Util
-{
+public class Util {
 	static SessionFactory sf = null;
-	
+
 	public static Session getSession() {
 		StandardServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().configure().build();
 		Metadata metadata = new MetadataSources(serviceRegistry).getMetadataBuilder().build();
@@ -24,7 +23,3 @@ public class Util
 		}
 	}
 }
-
-
-
-
