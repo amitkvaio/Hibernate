@@ -8,21 +8,17 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
-public class Manager13 {
+public class Manager19 {
 	public static void main(String[] args) {
 		Session s1 = Util.getSession();
-		
+
 		CriteriaBuilder builder = s1.getCriteriaBuilder();
 		CriteriaQuery<Person> criteriaQuery = builder.createQuery(Person.class);
 		Root<Person> personRoot = criteriaQuery.from(Person.class);
-		//criteriaQuery.select(personRoot);
-		
-		
-		
-		
-		//criteriaQuery.where( builder.equal( personRoot.get("age"),25 ));
-		List<Person> list = s1.createQuery( criteriaQuery ).getResultList();
-		 
+
+		criteriaQuery.where( builder.equal( personRoot.get("age"),25 ));
+		List<Person> list = s1.createQuery(criteriaQuery).getResultList();
+
 		for (Person per : list) {
 			System.out.println(per);
 		}

@@ -20,7 +20,7 @@ public class Manager02 {
 		Session s1 = factory.openSession();
 
 		String fn, ln, decider;
-		int age;
+		int age, id;
 		Scanner sc = new Scanner(System.in);
 
 		Person p1 = null;
@@ -28,13 +28,16 @@ public class Manager02 {
 		do {
 			p1 = new Person();
 
+			System.out.println("enter the id:");
+			id = sc.nextInt();
 			System.out.println("enter the first name:");
 			fn = sc.next();
 			System.out.println("enter the last name:");
 			ln = sc.next();
 			System.out.println("enter the age:");
 			age = sc.nextInt();
-
+			
+			p1.setId(id);
 			p1.setFirstname(fn);
 			p1.setLastname(ln);
 			p1.setAge(age);

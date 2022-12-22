@@ -18,7 +18,7 @@ public class Manager04 {
 		SessionFactory factory = metadata.getSessionFactoryBuilder().build();
 		Session s1 = factory.openSession();
 
-		Person p1 = (Person) s1.get(Person.class, 5);
+		Person p1 =  s1.get(Person.class, 1);
 
 		System.out.println("p1-->" + p1);
 

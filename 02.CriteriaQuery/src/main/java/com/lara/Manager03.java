@@ -2,25 +2,34 @@ package com.lara;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Path;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+
 import org.hibernate.Session;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.Restrictions;
 
 public class Manager03 {
 	public static void main(String[] args) {
 		Session s1 = Util.getSession();
 
-		Criteria ctr = s1.createCriteria(Person.class);
-
-		Criterion c1 = Restrictions.eq("firstname", "amit");
-		Criterion c2 = Restrictions.ge("age", 30);
-
-		Criterion c3 = Restrictions.or(c1, c2);
-		ctr.add(c3);
-
-		List<Person> list = ctr.list();
-
+		CriteriaBuilder builder = s1.getCriteriaBuilder();
+		CriteriaQuery<Person> criteriaQuery = builder.createQuery(Person.class);
+		Root<Person> personRoot = criteriaQuery.from(Person.class);
+		
+		
+		Path<String> firstName = personRoot.get("firstname");
+		Path<String> age = personRoot.get("age");
+		
+		Predicate preFirst = builder.equal(firstName, "AMIT");
+		Predicate preLast = builder.equal(age,25);
+		
+		Predicate or = builder.or(preFirst,preLast);
+		criteriaQuery.select(personRoot).where(or); 
+		 
+		List<Person> list = s1.createQuery( criteriaQuery ).getResultList();
+		
 		for (Person p1 : list) {
 			System.out.println(p1.getId());
 			System.out.println(p1.getFirstname());

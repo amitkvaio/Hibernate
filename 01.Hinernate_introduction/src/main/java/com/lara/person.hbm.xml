@@ -6,9 +6,9 @@
 <hibernate-mapping package="com.lara">
 	<class name="Person" table="Person" mutable="true">
 		<id name="id">
-			<generator class="native" />
+			<generator class="assigned" />
 		</id>
-		<property name="firstname" />
+		<property name="firstname"/>
 		<property name="lastname" />
 		<property name="age" />
 	</class>
@@ -25,7 +25,7 @@
 		firstname AS FIRSTNAME123,
 		lastname as LASTNAME,
 		age as AGE
-		from Person where id=2
+		from Person where id=1
 	</sql-query>
 
 </hibernate-mapping>

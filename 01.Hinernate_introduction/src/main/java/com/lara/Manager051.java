@@ -17,7 +17,7 @@ public class Manager051 {
 		Session s1 = sessionFactory.openSession();
 
 		Person p1 = new Person();
-		p1.setId(2);
+		p1.setId(20);
 		p1.setFirstname("lara");
 		p1.setLastname("tech");
 		p1.setAge(24);

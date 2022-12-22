@@ -6,6 +6,20 @@ public class Person {
 	private String lastname;
 	private int age;
 
+	public Person() {
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	public Person(int id, String firstname, String lastname, int age) {
+		super();
+		this.id = id;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.age = age;
+	}
+
+
 	public int getId() {
 		return id;
 	}

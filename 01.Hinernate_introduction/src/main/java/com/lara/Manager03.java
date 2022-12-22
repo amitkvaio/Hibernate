@@ -16,9 +16,11 @@ public class Manager03 {
 		SessionFactory factory = metadata.getSessionFactoryBuilder().build();
 		Session s1 = factory.openSession();
 
-		Person p1 = (Person) s1.load(Person.class, 5);
-		// System.out.println("p1="+p1);
-
+		
+	    Person p1 = s1.load(Person.class, 1);
+		
+	    System.out.println("p1="+p1);
+		
 		System.out.println(p1.getId());
 		System.out.println(p1.getFirstname());
 		System.out.println(p1.getLastname());

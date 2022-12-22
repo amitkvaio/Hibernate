@@ -15,8 +15,7 @@ public class Manager06 {
 		SessionFactory sf = metadata.getSessionFactoryBuilder().build();
 
 		Session s1 = sf.openSession();
-
-		Person p1 = (Person) s1.load(Person.class, 1);
+		Person p1 = s1.load(Person.class, 16);
 		s1.beginTransaction();
 		s1.delete(p1);
 		s1.getTransaction().commit();
