@@ -8,8 +8,12 @@ import org.hibernate.Session;
 public class Manager10 {
 	public static void main(String[] args) {
 		Session s1 = Util.getSession();
-		List<Object[]> obj = s1.getNamedQuery("q4").setInteger("param1", 20).setString("param2", "Malik").list();
-
+		
+		List<Object[]> obj =s1.createNamedQuery("q4")
+				.setParameter("param1", 20)
+				.setParameter("param2", "Malik")
+				.getResultList();
+		
 		for (Object[] ob : obj) {
 			System.out.println(Arrays.toString(ob));
 		}

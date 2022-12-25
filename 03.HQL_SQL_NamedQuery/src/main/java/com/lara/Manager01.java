@@ -3,16 +3,20 @@ package com.lara;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.persistence.TypedQuery;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 
 public class Manager01 {
 	public static void main(String[] args) {
 		Session s1 = Util.getSession();
-		//Query<Raja> qr = s1.createQuery("from Raja");
-		 Query qr = s1.createQuery("from com.lara.Raja");
-
-		List<Raja> list = qr.list();
+		
+		TypedQuery<Raja> typedQuery = s1.createQuery(
+			    "from Raja", Raja.class);
+		 
+		List<Raja> list = typedQuery.getResultList();
+		 
 
 		for (Raja r1 : list) {
 			System.out.println(r1.getId());
@@ -22,7 +26,7 @@ public class Manager01 {
 			System.out.println("..............");
 		}
 
-		List<Raja> li = qr.list();
+		List<Raja> li = typedQuery.getResultList();
 		Iterator<Raja> itet = li.iterator();
 
 		while (itet.hasNext()) {

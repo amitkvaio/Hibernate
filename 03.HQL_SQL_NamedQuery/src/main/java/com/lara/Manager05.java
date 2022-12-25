@@ -3,7 +3,6 @@ package com.lara;
 import java.util.Arrays;
 import java.util.List;
 
-import org.hibernate.Query;
 import org.hibernate.Session;
 
 public class Manager05 {
@@ -11,12 +10,11 @@ public class Manager05 {
 		Session s1 = Util.getSession();
 
 		String s2 = "select lastname,age from Raja where firstname='Manoj'";
-
-		Query qr1 = s1.createSQLQuery(s2);
-
-		List<Object[]> obj = qr1.list();
-
-		for (Object[] ag : obj) {
+		
+		List<Object[]> objArr = s1.createNativeQuery(s2).getResultList();
+		System.out.println(objArr.size());
+		
+		for (Object[] ag : objArr) {
 			System.out.println(Arrays.toString(ag));
 		}
 		System.exit(0);

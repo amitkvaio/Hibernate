@@ -37,4 +37,9 @@ public class Raja {
 	public void setAge(int age) {
 		this.age = age;
 	}
+
+	@Override
+	public String toString() {
+		return "Raja [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", age=" + age + "]";
+	}
 }

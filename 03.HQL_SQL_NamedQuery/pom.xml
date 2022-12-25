@@ -1,18 +1,22 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.lara</groupId>
 	<artifactId>03.HQL_SQL_NamedQuery</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SQL NAMED QUERY</name>
 	<description>SQL NAMED QUERY</description>
+	
+	<properties>
+    	<java.version>11</java.version>
+	</properties>
+
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<!-- <version>5.2.6.Final</version> -->
-			<version>4.3.11.Final</version>
+			<version>5.2.6.Final</version>
+			<!--<version>4.3.11.Final</version> -->
 		</dependency>
 
 		<!-- <dependency>
@@ -21,11 +25,24 @@
 			<version>8.0.11</version>
 		</dependency> -->
 
-	<dependency>
-		<groupId>com.oracle</groupId>
-		<artifactId>ojdbc6</artifactId>
-		<version>11.2.0</version>
-		<scope>compile</scope>
-	</dependency>
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0</version>
+			<scope>compile</scope>
+		</dependency>
+		<!-- API, java.xml.bind module -->
+		<dependency>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactId>jakarta.xml.bind-api</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+
+		<!-- Runtime, com.sun.xml.bind module -->
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+			<version>2.3.2</version>
+		</dependency>
 	</dependencies>
 </project>
