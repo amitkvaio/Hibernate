@@ -7,8 +7,10 @@ import org.hibernate.Session;
 public class Manager03 {
 	public static void main(String[] args) {
 		Session s1 = Util.getSession();
-
-		List<Person> list = s1.getNamedQuery("q2").setInteger("param1", 10).list();
+		
+		List<Person> list =s1.createNamedQuery("q2")
+				.setParameter("param1", 10)
+				.getResultList();
 
 		for (Person obj : list) {
 			System.out.println(obj.getId());

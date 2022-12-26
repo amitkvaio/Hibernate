@@ -1,12 +1,9 @@
 package com.lara;
 
 import org.hibernate.Session;
-import org.hibernate.cfg.Configuration;
 
 public class Manager00 {
 	public static void main(String[] args) {
-		Configuration con = new Configuration();
-		con.configure();
 
 		Session s1 = Util.getSession();
 		Person p1 = new Person();

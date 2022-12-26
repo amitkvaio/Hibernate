@@ -5,7 +5,7 @@
 <hibernate-configuration>
     <session-factory>
     
-         <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+         <property name="hibernate.dialect">org.hibernate.dialect.Oracle12cDialect</property>
         <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
         <property name="hibernate.connection.username">system</property>
         <property name="hibernate.connection.password">system</property>
@@ -21,7 +21,7 @@
         
        <!--  <property name="hibernate.hbm2ddl.auto">create</property> -->
        
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
         
       	<property name="hibernate.show_sql">true</property>
       

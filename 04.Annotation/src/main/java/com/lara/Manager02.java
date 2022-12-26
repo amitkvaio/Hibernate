@@ -7,9 +7,8 @@ import org.hibernate.Session;
 public class Manager02 {
 	public static void main(String[] args) {
 		Session s1 = Util.getSession();
-
-		List<Person> list = s1.getNamedQuery("q1").list();
-
+		
+		List<Person> list = s1.createNamedQuery("q1").getResultList();
 		for (Person obj : list) {
 			System.out.println(obj.getId());
 			System.out.println(obj.getFirstname());

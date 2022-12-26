@@ -7,8 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Product")
-public class Product
-{
+public class Product {
 	@Id
 	@Column(name = "id")
 	private int id;
@@ -19,33 +18,27 @@ public class Product
 	@Column(name = "price")
 	private double price;
 
-	public int getId()
-	{
+	public int getId() {
 		return id;
 	}
 
-	public void setId(int id)
-	{
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getProName()
-	{
+	public String getProName() {
 		return proName;
 	}
 
-	public void setProName(String proName)
-	{
+	public void setProName(String proName) {
 		this.proName = proName;
 	}
 
-	public double getPrice()
-	{
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price)
-	{
+	public void setPrice(double price) {
 		this.price = price;
 	}
 

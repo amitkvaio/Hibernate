@@ -8,8 +8,11 @@ public class Manager04 {
 	public static void main(String[] args) {
 		Session s1 = Util.getSession();
 
-		List<Person> list = s1.getNamedQuery("q3").setInteger("param1", 14).setString("param2", "nepali").list();
-
+		List<Person> list =s1.createNamedQuery("q3")
+				.setParameter("param1", 10)
+				.setParameter("param2", "nepali")
+				.getResultList();
+		
 		for (Person obj : list) {
 			System.out.println(obj.getId());
 			System.out.println(obj.getFirstname());

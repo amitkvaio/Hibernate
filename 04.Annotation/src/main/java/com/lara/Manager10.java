@@ -2,6 +2,12 @@ package com.lara;
 
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Path;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
@@ -11,12 +17,25 @@ public class Manager10 {
 
 		Session s1 = Util.getSession();
 
-		Criteria ctr = s1.createCriteria(Person.class);
+		CriteriaBuilder builder = s1.getCriteriaBuilder();
+		CriteriaQuery<Person> criteriaQuery = builder.createQuery(Person.class);
+		Root<Person> personRoot = criteriaQuery.from(Person.class);
+		
+		Path<String> address = personRoot.get("address");
+		Path<Integer> age = personRoot.get("age");
+		
+		Predicate preAdd = builder.equal(address, "ranchi");
+		Predicate preAge = builder.gt(age, 10);
+		
+		Predicate preAnd = builder.and(preAdd, preAge);
+		criteriaQuery
+			.select(personRoot)
+			.where(preAnd);
 
-		// ctr.add(Restrictions.eq("address","ranchi"));
-		ctr.add(Restrictions.ge("age", 10));
-
-		List<Person> list = ctr.list();
+		List<Person> list = s1
+		        .createQuery(criteriaQuery)
+		        .getResultList();
+		
 
 		for (Person p1 : list) {
 			System.out.println(p1.getId());
