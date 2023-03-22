@@ -12,7 +12,7 @@ public class Manager04 {
 		Person p2 = (Person) s1.load(Person.class, 2);
 
 		s1.beginTransaction();
-		p1.setFirstName("changed");
+		p1.setFirstName("changed1");
 		s1.update(p1);
 		p1.setLastName("first");
 		s1.update(p1);
@@ -20,7 +20,7 @@ public class Manager04 {
 		s1.close();
 
 		s2.beginTransaction();
-		p2.setFirstName("changed2");
+		p2.setFirstName("changed3");
 		s2.update(p2);
 		p2.setLastName("second");
 		s2.update(p2);

@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "Person")
 
@@ -29,5 +28,4 @@ public class Person extends Human {
 	public void setCity(String city) {
 		this.city = city;
 	}
-
 }

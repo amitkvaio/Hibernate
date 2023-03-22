@@ -11,26 +11,26 @@ public class Manager01 {
 		h1.setAge(32);
 
 		Person p1 = new Person();
-		p1.setFirstName("Amit");
-		p1.setAge(31);
-		p1.setAddress("Ranchi");
+		p1.setFirstName("Raja");
+		p1.setAge(32);
+		p1.setAddress("BTM");
 		p1.setCity("Bangalore");
 
 		Employee e1 = new Employee();
-		e1.setFirstName("Niraj");
-		e1.setAge(26);
-		e1.setAddress("New Madhukam");
-		e1.setCity("Ranchi");
+		e1.setFirstName("Raja");
+		e1.setAge(32);
+		e1.setAddress("BTM");
+		e1.setCity("Bangalore");
 		e1.setDesignation("Soft Eng");
-		e1.setEmail("niraj@gmail.com");
+		e1.setEmail("raja@gmail.com");
 
 		PermanentEmployee pe = new PermanentEmployee();
-		pe.setFirstName("Ajit");
-		pe.setEmail("ajit@gmail.com");
-		pe.setDesignation("HR");
-		pe.setCity("Bihar");
-		pe.setAge(19);
-		pe.setAddress("Rafigunj");
+		pe.setFirstName("Raja");
+		pe.setEmail("raja@gmail.com");
+		pe.setDesignation("Soft Eng");
+		pe.setCity("Bangalore");
+		pe.setAge(32);
+		pe.setAddress("BTM");
 		pe.setLeavecount(152);
 		pe.setSalary(52686.56);
 

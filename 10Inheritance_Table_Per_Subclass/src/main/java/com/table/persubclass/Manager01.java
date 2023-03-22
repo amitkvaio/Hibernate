@@ -5,7 +5,7 @@ import org.hibernate.Session;
 public class Manager01 {
 	public static void main(String[] args) {
 		Human h1 = new Human();
-		h1.setFirstName("Raja");
+		h1.setFirstName("Raja-hbm");
 		h1.setAge(32);
 
 		Person p1 = new Person();

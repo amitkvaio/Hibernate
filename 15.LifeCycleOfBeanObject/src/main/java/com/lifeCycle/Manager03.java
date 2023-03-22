@@ -13,8 +13,8 @@ public class Manager03 {
 
 		s1.close();
 
-		st.setSname("aabba");// st is deteched state
-		st.setMarks("500");
+		st.setSname("ddd");// st is deteched state
+		st.setMarks("800");
 
 		Session s2 = Util.getSession();
 		s2.beginTransaction();

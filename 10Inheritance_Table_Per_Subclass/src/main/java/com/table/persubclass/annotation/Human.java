@@ -15,7 +15,7 @@ import javax.persistence.Table;
 public class Human {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int hid;
 
 	@Column

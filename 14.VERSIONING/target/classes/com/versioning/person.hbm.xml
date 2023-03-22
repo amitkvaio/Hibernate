@@ -6,18 +6,11 @@
 <hibernate-mapping package="com.versioning">
 
 	<class name="Person" table="Version">
-
 		<id name="id" column="id">
-
 			<generator class="native" />
 		</id>
-	
 		<version name="ver" column="ver" />
 		<property name="firstname"/>
 		<property name="lastname" />
-		
-	
 	</class>
-
-
 </hibernate-mapping>

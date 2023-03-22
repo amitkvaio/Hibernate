@@ -28,5 +28,4 @@ public class Product {
 	protected void setPprice(int pprice) {
 		this.pprice = pprice;
 	}
-
 }

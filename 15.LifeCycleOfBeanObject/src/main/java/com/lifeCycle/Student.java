@@ -29,4 +29,9 @@ public class Student {
 		this.marks = marks;
 	}
 
+	@Override
+	public String toString() {
+		return "Student [sid=" + sid + ", sname=" + sname + ", marks=" + marks + "]";
+	}
+
 }

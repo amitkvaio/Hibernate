@@ -13,14 +13,12 @@ public class Manager01 {
 		st.setSid(12);
 
 		saveInOracle(st);
-		// saveInMysql(st);
+		saveInMysql(st);
 	}
 
 	private static void saveInOracle(Student p1) {
-		Configuration con = new Configuration().configure();
-		StandardServiceRegistryBuilder sr = new StandardServiceRegistryBuilder().applySettings(con.getProperties());
-		SessionFactory sf = con.buildSessionFactory(sr.build());
-		Session s1 = sf.openSession();
+		 
+		Session s1 = sessionForStoreDataInOracle();
 
 		s1.beginTransaction();
 		s1.save(p1);
@@ -29,6 +27,16 @@ public class Manager01 {
 		s1.close();
 		System.out.println("done");
 
+	}
+	
+	private static void saveInMysql(Student p1) {
+		Session s1 = seesionForStoreDataInMysql();
+		s1.beginTransaction();
+		s1.save(p1);
+		s1.getTransaction().commit();
+		s1.flush();
+		s1.close();
+		System.out.println("done");
 	}
 	
 	public static Session sessionForStoreDataInOracle() {

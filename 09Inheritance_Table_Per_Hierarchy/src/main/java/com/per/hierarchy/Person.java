@@ -19,5 +19,4 @@ public class Person extends Human {
 	public void setCity(String city) {
 		this.city = city;
 	}
-
 }

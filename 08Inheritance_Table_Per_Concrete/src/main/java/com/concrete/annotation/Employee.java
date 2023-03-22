@@ -1,4 +1,4 @@
- package com.concrete.annotation;
+package com.concrete.annotation;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,30 +7,25 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Employee")
 
-public class Employee extends Person
-{
-	@Column(name="designation")
+public class Employee extends Person {
+	@Column(name = "designation")
 	private String designation;
-	@Column(name="email")
+	@Column(name = "email")
 	private String email;
 
-	public String getDesignation()
-	{
+	public String getDesignation() {
 		return designation;
 	}
 
-	public void setDesignation(String designation)
-	{
+	public void setDesignation(String designation) {
 		this.designation = designation;
 	}
 
-	public String getEmail()
-	{
+	public String getEmail() {
 		return email;
 	}
 
-	public void setEmail(String email)
-	{
+	public void setEmail(String email) {
 		this.email = email;
 	}
 

@@ -10,6 +10,12 @@
 	 		 </id>
 	 		<property name="sname"/>
 	 	</class>
+
+<!-- 
+This is the simple mapping file for the Address class. 
+	But the important thing is generator class. 
+		Here, we are using foreign generator class that depends on the Student class primary key.
+ -->
 	 	
 	 	<class name="Address" table="Address">
 	 		 <id name="adid" column="Aid">

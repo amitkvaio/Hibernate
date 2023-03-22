@@ -7,13 +7,13 @@ public class Manager02 {
 		Session s1 = Util.getSession();
 
 		Person p1 = new Person();
-		p1.setId(101);
+		p1.setId(103);
 		p1.setFirstname("amit");
 		p1.setLastname("kumar");
 		p1.setAge(24);
 
 		Person p2 = new Person();
-		p2.setId(102);
+		p2.setId(104);
 		p2.setFirstname("ajit");
 		p2.setLastname("kumar");
 		p2.setAge(14);

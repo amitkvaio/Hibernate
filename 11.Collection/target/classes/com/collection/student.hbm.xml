@@ -5,11 +5,11 @@
 	
 	<hibernate-mapping package="com.collection">
 	
-		<!-- <class name="Student" table="STUDENT">
+		  <class name="Student" table="STUDENT">
 		
 			<id name="id" column="S_ID">
 				<generator class="sequence">
-					<param name="sequence">student_seq</param>
+					<param name="sequence">MYSQUENCE</param>
 				</generator>
 			</id>
 			
@@ -46,12 +46,13 @@
 			<map-key column="name" type="string"/>
 			<element column="education" type="string"/>
 		</map>
-	</class> -->
+	</class>  
 	
+	<!--  
 		<class name="Student" table="STUDENT">
 			<id name="id" column="S_ID">
 				<generator class="sequence">
-					<!-- <param name="sequence">student_seq</param> -->
+					  <param name="sequence">student_seq</param>  
 				</generator>
 			</id>
 			<property name="name"/>
@@ -80,6 +81,7 @@
 				<element column="post" type="string"/>	
 			</map>
 		</class>
+		-->
 	</hibernate-mapping>
 	
 	<!-- private int id;

@@ -8,8 +8,8 @@ public class Manager03 {
 
 		Person p1 = (Person) s1.load(Person.class, 1);
 
-		p1.setFirstname("change");
-		p1.setLastname("after");
+		p1.setFirstname("change1");
+		p1.setLastname("after2");
 
 		s1.beginTransaction();
 		s1.update(p1);

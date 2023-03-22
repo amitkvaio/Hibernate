@@ -6,7 +6,7 @@ public class Manager03 {
 	public static void main(String[] args) {
 		Session s1 = Util.getSession();
 
-		Person p1 = (Person) s1.load(Person.class, 1);
+		Person p1 = (Person) s1.load(Person.class, 2);
 
 		System.out.println(p1.getId());
 		System.out.println(p1.getFirstName());

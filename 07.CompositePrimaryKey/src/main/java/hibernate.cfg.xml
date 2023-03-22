@@ -5,18 +5,20 @@
 <hibernate-configuration>
     <session-factory>
     
-      <!--   <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+         <property name="hibernate.dialect">org.hibernate.dialect.Oracle12cDialect</property>
         <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
         <property name="hibernate.connection.username">system</property>
-        <property name="hibernate.connection.password">amit</property>
-        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property> -->
+        <property name="hibernate.connection.password">system</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
         
+        <!--
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/amitdb</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">amit</property>
-        
+		 -->
+
        <!--  <property name="hibernate.hbm2ddl.auto">create</property> -->
        
         <property name="hibernate.hbm2ddl.auto">update</property>
@@ -26,7 +28,7 @@
        <mapping resource="com/lara/person.hbm.xml"/>
        <mapping resource="com/product/Product.hbm.xml"/>
        
-        <!-- <mapping class="com.lara.annotation.Person"/>  -->
+        <mapping class="com.lara.annotation.Person"/>
        <!-- Above mapping is being used for annotation -->
     </session-factory>
 </hibernate-configuration>

@@ -3,8 +3,7 @@ How to create the Stored Procedure
 ----------------------------------
 run the below command in sql
 -----------------------------------
-Create Or Replace 
-Procedure P1
+Create Or Replace Procedure P1
 as
 Begin 
 Insert into Student Values(2,'xyz');end;

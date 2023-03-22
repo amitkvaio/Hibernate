@@ -7,7 +7,7 @@ public class Manager03 {
 		Session s1 = Util.getSession();
 
 		PersonPK pk = new PersonPK();
-		pk.setFirstName("amit1");
+		pk.setFirstName("amit");
 		pk.setEmail("amit@amit.com");
 		
 		Person p1 = (Person) s1.load(Person.class, pk);
