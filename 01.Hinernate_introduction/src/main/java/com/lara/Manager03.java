@@ -17,7 +17,7 @@ public class Manager03 {
 		Session s1 = factory.openSession();
 
 		
-	    Person p1 = s1.load(Person.class, 1);
+	    Person p1 = s1.load(Person.class, 1014);
 		
 	    System.out.println("p1="+p1);
 		
